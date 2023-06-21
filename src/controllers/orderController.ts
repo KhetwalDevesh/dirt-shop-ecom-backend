@@ -23,7 +23,7 @@ export const createOrder = async (req, res) => {
 		const orderAmount = calculateOrderAmount(orderItems);
 		console.log("orderAmount", JSON.stringify(orderAmount, null, 2));
 		const paymentIntent = await stripe.paymentIntents.create({
-			amount: orderAmount,
+			amount: orderAmount * 100,
 			currency: "inr",
 			// automatic_payment_methods: { enabled: true },
 		});
